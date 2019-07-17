@@ -17,7 +17,7 @@ def generate_region_list(hash):
     return fh.name
 
 def filter_sites_in_hash(region_list, bam_file, ref_fasta, sample, output_dir, insertion_centric):
-    bam_readcount_cmd = ['/usr/bin/bam-readcount', '-f', ref_fasta, '-l', region_list, '-w', '0', '-b', '20']
+    bam_readcount_cmd = ['bam-readcount', '-f', ref_fasta, '-l', region_list, '-w', '0', '-b', '20']
     if insertion_centric:
         bam_readcount_cmd.append('-i')
         output_file = os.path.join(output_dir, sample + '_bam_readcount_indel.tsv')
